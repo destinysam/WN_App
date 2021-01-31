@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('../partials/head')%>
+    </head>
+    <body>
+        <header>
+            <%- include('../partials/header')%>
+        </header>
+        <div class="container">
+            <div class="row justify-content-center" style="margin-left: 0px;margin-right: 0px;">
+                <%if(artic != null){ %>
+                    <% for(var i=0;i < artic.articles.length;i++){ %>
+                        <div class="card mt-2 mr-2" style="width: 300px;">
+                            <img class="card-img-top" src="<%= artic.articles[i].urlToImage %>" alt="">
+                            <div class="card-body">
+                                <div class="card-title">
+                                    <h4><%= artic.articles[i].title %></h4>
+                                </div>
+                                <div class="card-text">
+                                    <p><%= artic.articles[i].description %>
+                                    </p> 
+                                </div>
+                                <button type="button" class="btn btn-sm btn-primary"><a href="/technology" style="text-decoration: none;color: antiquewhite;">ReadMore</a></button>
+                            </div>
+                            <div class="card-footer">
+                                <span class="fas fa-heart"><%= artic.articles[i].source.name %></span>
+                                <% var m = new Date(artic.articles[i].publishedAt).toLocaleString(undefined, {timeZone: 'Asia/Kolkata'}) %>
+                                <span class="ml-4"><%= m%></span>
+                            </div>
+                        </div>
+                    <%} %>    
+                <%}else{ %>
+                    <div class="alert alert-warning mt-4">
+                        <strong>Warning!</strong>Something Went Wrong
+                      </div>
+                <%}%>          
+            </div>
+        </div>
+        <footer>
+            <%- include('../partials/footer') %>
+        </footer>
+    </body>
+</html>
