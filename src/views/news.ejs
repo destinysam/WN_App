@@ -5,30 +5,43 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>WN</title>
         <link rel="stylesheet" href="/css/style.css"> 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">        
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap" rel="stylesheet">  
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">      
     </head>
     <body>
-        <h1><%= message%></h1>
         <div class="container">
             <div class="row justify-content-center" style="margin-left: 0px;margin-right: 0px;">
-                <% for(var i=0;i < artic.articles.length;i++){ %>
-                    <div class="card mt-2 mr-2" style="width: 300px;">
-                        <img class="card-img-top" src="<%= artic.articles[i].image %>" alt="">
-                        <div class="card-body">
-                            <div class="card-title">
-                                <h4><%= artic.articles[i].title %></h4>
+                <%if(artic != null){ %>
+                    <% for(var i=0;i < artic.articles.length;i++){ %>
+                        <div class="card mt-2 mr-2" style="width: 300px;">
+                            <img class="card-img-top" src="<%= artic.articles[i].urlToImage %>" alt="">
+                            <div class="card-body">
+                                <div class="card-title">
+                                    <h4><%= artic.articles[i].title %></h4>
+                                </div>
+                                <div class="card-text">
+                                    <p><%= artic.articles[i].description %>
+                                    </p> 
+                                </div>
+                                <button type="button" class="btn btn-sm btn-primary"><a href="/<%= artic.articles[i].author%>" style="text-decoration: none;color: antiquewhite;">ReadMore</a></button>
                             </div>
-                            <div class="card-text">
-                                <p><%= artic.articles[i].description %>
-                                </p> 
+                            <div class="card-footer">
+                                <span class="fas fa-heart"><%= artic.articles[i].source.name %></span>
+                                <% var m = new Date(artic.articles[i].publishedAt).toLocaleString(undefined, {timeZone: 'Asia/Kolkata'}) %>
+                                <span class="ml-4"><%= m%></span>
                             </div>
                         </div>
-                    </div>
-                <% } %>      
+                    <%} %>    
+                <%}else{ %>
+                    <div class="alert alert-warning mt-4">
+                        <strong>Warning!</strong>Something Went Wrong
+                      </div>
+                <%}%>          
             </div>
         </div>
     </body>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </html>
