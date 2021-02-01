@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <%- include('../partials/head')%>
+        <%- include('../partials/head') %>
     </head>
     <body>
         <header>
-            <%- include('../partials/header')%>
+            <%- include('../partials/header') %>
         </header>
+        <button type="button" class="btn btn-md btn-info mt-4 ml-2">Category:<%= title %></button>
         <div class="container">
             <div class="row justify-content-center" style="margin-left: 0px;margin-right: 0px;">
                 <%if(artic != null){ %>
@@ -21,7 +22,7 @@
                                     <p><%= artic.articles[i].description %>
                                     </p> 
                                 </div>
-                                <button type="button" class="btn btn-sm btn-primary"><a href="/technology" style="text-decoration: none;color: antiquewhite;">ReadMore</a></button>
+                                <button type="button" class="btn btn-sm btn-primary"><a href="/article/<%= artic.articles[i].author%>" style="text-decoration: none;color: antiquewhite;">ReadMore</a></button>
                             </div>
                             <div class="card-footer">
                                 <span class="fas fa-heart"><%= artic.articles[i].source.name %></span>

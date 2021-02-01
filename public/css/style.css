@@ -2,6 +2,10 @@ body{
     margin: 0;
     font-family: 'Source Sans Pro', sans-serif;
 }
+.card:hover{
+    background-color: black;
+    color: blanchedalmond;
+}
 .card-img-top {
     width:100%;
     object-fit: cover;
