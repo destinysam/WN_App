@@ -1,6 +1,5 @@
 const express = require('express')
 const app = express()
-const port = 5000
 
 app.use(express.static('public'))
 app.use('/css',express.static(__dirname + 'public/css'))
@@ -26,6 +25,4 @@ app.use('/health',Health)
 const Sports = require('./src/routes/sports')
 app.use('/sports',Sports)
 
-app.listen(port, () => {
-    console.log(`Running on port ${port}`)
-})
+app.listen(process.env.PORT || 5000)
