@@ -7,7 +7,7 @@
         <header>
             <%- include('../partials/header')%>
         </header>
-        <button type="button" class="btn btn-md btn-info mt-4 ml-2">Category:<%= title %></button>
+        <button type="button" class="btn btn-md btn-info mt-4 ml-2">Category:<%= Title %></button>
         <div class="container">
             <div class="row justify-content-center">
                 <%if(artic != null){ %>
@@ -22,10 +22,14 @@
                                     <p><%= artic.articles[i].description %>
                                     </p> 
                                 </div>
-                                <button type="button" class="btn btn-sm btn-primary"><a href="/technology" style="text-decoration: none;color: antiquewhite;">ReadMore</a></button>
+                                <button id="bttn" type="button" class="btn btn-sm btn-primary">ReadMore
+                                </button>
+                                <div id='content' class="card-text">
+                                    <p><%= artic.articles[i].content%></p>
+                                </div>
                             </div>
                             <div class="card-footer">
-                                <span class="fas fa-heart"><%= artic.articles[i].source.name %></span>
+                                <span class="fa fa-heart mr-2"></span><%= artic.articles[i].source.name %>
                                 <% var m = new Date(artic.articles[i].publishedAt).toLocaleString(undefined, {timeZone: 'Asia/Kolkata'}) %>
                                 <span class="ml-4"><%= m%></span>
                             </div>
@@ -42,4 +46,5 @@
             <%- include('../partials/footer') %>
         </footer>
     </body>
+
 </html>

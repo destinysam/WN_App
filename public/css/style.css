@@ -3,7 +3,7 @@ body{
     font-family: 'Source Sans Pro', sans-serif;
 }
 .card:hover{
-    background-color: black;
+    background-color: rgb(34, 34, 34);
     color: blanchedalmond;
 }
 .card-img-top {
@@ -16,4 +16,8 @@ body{
  .alert{
      width: 100%;
      height: 100%;
+ }
+ footer{
+    margin-top: 230px;
+    width: 100%;
  }
