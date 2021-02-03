@@ -5,8 +5,12 @@ const axios = require('axios')
 
 
 Sports.get('/',async(req,res)=>{
+    let date = new Date()
+    let month = date.getMonth() //starts from 0
+    let acutalmonth = month + 1
+    let newmonth = `2021-${acutalmonth}-01`
     try {
-        const newsApi = await axios.get('http://newsapi.org/v2/everything?q=sports&from=2021-02-01&sortBy=publishedAt&language=en&apiKey=aeed9c08c33048c9a13de10588075691')
+        const newsApi = await axios.get('http://newsapi.org/v2/everything?q=sports&from="+newmonth+"&sortBy=publishedAt&language=en&apiKey=aeed9c08c33048c9a13de10588075691')
         const artic = newsApi.data
         res.render('pages/sports',{artic,Title:'sports'})
     } catch (error) {
