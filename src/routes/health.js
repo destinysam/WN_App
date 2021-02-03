@@ -1,7 +1,7 @@
 const express = require('express')
 const Health = express.Router()
 const axios = require('axios')
-
+const apkey = process.env.REACT_APP_API_KEY
 
 
 Health.get('/',async(req,res)=>{
@@ -10,7 +10,7 @@ Health.get('/',async(req,res)=>{
     let acutalmonth = month + 1
     let newmonth = `2021-${acutalmonth}-01`
     try {
-        const newsApi = await axios.get('http://newsapi.org/v2/everything?q=health&from="+newmonth+"&sortBy=publishedAt&language=en&apiKey=aeed9c08c33048c9a13de10588075691')
+        const newsApi = await axios.get("http://newsapi.org/v2/everything?q=health&from="+newmonth+"&sortBy=publishedAt&language=en&apiKey="+apkey+"")
         const artic = newsApi.data
         res.render('pages/health',{artic,Title:'health'})
     } catch (error) {
