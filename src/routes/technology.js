@@ -1,7 +1,7 @@
 const express = require('express')
 const Technology = express.Router()
 const axios = require('axios')
-const apkey = process.env.REACT_APP_API_KEY
+const apkey = process.env.API_KEY
 
 
 Technology.get('/',async(req,res)=>{

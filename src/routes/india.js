@@ -1,7 +1,7 @@
 const express = require('express')
 const India = express.Router()
 const axios = require('axios')
-const apkey = process.env.REACT_APP_API_KEY
+const apkey = process.env.API_KEY
 
 
 India.get('/',async(req,res)=>{
