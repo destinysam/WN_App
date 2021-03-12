@@ -11,7 +11,7 @@ $(document).ready(function(){
             $(card).find('#readmore').toggle();
         });    
     });
-    var backtoTop = document.querySelector(".backtotop")
+    var backtoTop = document.querySelector("#backtotop")
     var rootelement = document.documentElement
     function handleScroll(){
         var scrollTotal = rootelement.scrollHeight - rootelement.clientHeight

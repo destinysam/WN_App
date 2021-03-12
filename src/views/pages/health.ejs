@@ -13,7 +13,7 @@
                 <%if(artic != null){ %>
                     <% for(var i=0;i < artic.articles.length;i++){ %>
                         <div class="card mt-2 mr-2" style="width: 350px;">
-                            <img class="card-img-top" src="<%= artic.articles[i].urlToImage %>" alt="">
+                            <img class="card-img-top" src="<%= artic.articles[i].urlToImage %>" alt="article image" height="40%">
                             <div class="card-body">
                                 <div class="card-title">
                                     <h4><%= artic.articles[i].title %></h4>
@@ -30,7 +30,7 @@
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <span class="fa fa-circle mr-2"></span><%= artic.articles[i].source.name %>
+                                <span class="fa fa-heart mr-2"></span><%= artic.articles[i].source.name %>
                                 <% var m = new Date(artic.articles[i].publishedAt).toLocaleString(undefined, {timeZone: 'Asia/Kolkata'}) %>
                                 <span class="ml-2"><%= m%></span>
                             </div>
@@ -43,7 +43,7 @@
                 <%}%>          
             </div>
         </div>
-        <button class="backtotop">Top</button>
+        <a class="btn btn-sm btn-dark" id="backtotop">Top</a>
         <footer>
             <%- include('../partials/footer') %>
         </footer>

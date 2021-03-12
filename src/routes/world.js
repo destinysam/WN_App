@@ -6,7 +6,7 @@ World.get('',async(req,res)=>{
     let date = new Date()
     let month = date.getMonth() //starts from 0
     let acutalmonth = month + 1
-    let newmonth = `2021-${acutalmonth}-01`
+    const newmonth = `2021-${acutalmonth}-01`
     try {
         const newsApi = await axios.get("http://newsapi.org/v2/everything?q=world&from="+newmonth+"&sortBy=publishedAt&language=en&apiKey="+apkey+"")
         const artic = newsApi.data
@@ -17,7 +17,6 @@ World.get('',async(req,res)=>{
             console.log(error.response.data)
             console.log(error.response.status)
             console.log(error.response.headers)
-            
         }else if(error.request){
             res.render('pages/world',{artic : null,Title:'world'})
             console.log(error.request)
